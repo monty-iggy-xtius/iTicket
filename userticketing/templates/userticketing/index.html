@@ -1,0 +1,77 @@
+{% extends "userticketing/base.html" %}
+{% load static %}
+{% if title %}
+<title>{{ title }}</title>
+{% else %}
+<title>iTicket | Home</title>
+{% endif %}
+{% block content %}
+
+    <div class="hero" style="background-image: url('{% static "userticketing/images/bg1.jpg" %}');">
+        <div class="kero">
+            <!-- div containing header info -->
+            <div class="intro-div">
+                <!-- text div -->
+                <div class="intro-text custom-left-side-animation-div">
+                    <h2><span>iTicket</span>, The Future Of Ticketing</h2>
+                    <p>Reporting your issues has never been easier. Whether you have a technical or software problem, iTicket helps you create a ticket to your system administrator in just a few simple steps. Working in teams has never been easier</p>
+                    <div class="more-div">
+                        <a class="more-btn" href="{% url 'dashboard' %}">More</a>
+                    </div>
+                </div>
+                <!-- image div -->
+                <div class="intro-img custom-right-side-animation-div">
+                    <img src="{% static 'userticketing/images/face.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="preference-div">
+        <div id="why-us" class="pref-div-header">
+            <h3>Who Are We</h3>
+            <p>We are revolutionatry software engineers focused on delivering high end, open-source products. Join us today!</p>
+        </div>
+        <div class="pref-div-container">
+            <!-- item 1 -->
+            <div class="pref-items">
+                <p>Open Source</p>
+                <div class="pref-img-div">
+                    <img src="{% static 'userticketing/images/open-source.svg' %}" alt="">
+                </div>
+                <div class="three-dots-div">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <!-- item 2 -->
+            <div class="pref-items">
+                <p>Large Community</p>
+                <div class="pref-img-div">
+                    <img src="{% static 'userticketing/images/team.svg' %}" alt="">
+                </div>
+                <div class="three-dots-div">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <!-- item 3 -->
+            <div class="pref-items">
+                <p>24/7 Support</p>
+                <div class="pref-img-div">
+                    <img src="{% static 'userticketing/images/support.svg' %}" alt="">
+                </div>
+                <div class="three-dots-div">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <!-- try us button at the end -->
+        <div class="try-us-div custom-down-animation-div animation-delay-div-one">
+            <a class="try-btn" href="{% url 'dashboard' %}">Try iTicket</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends "userticketing/base.html" %}
+{% load static %}
+{% if title %}
+<title>{{ title }}</title>
+{% else %}
+<title>iTicket | Home</title>
+{% endif %}
+{% block content %}
+<div class="dashboard-container">
+    <div class="dash-head">
+        <div>
+            <h2>My dashboard</h2>
+        </div>
+        <div class="create-ticket">
+            <a href="/">create ticket</a>
+        </div>
+    </div>
+    <div class="dashboard-div">
+        <!-- first div, 2 childs -->
+        <div class="area-one">
+            <div class="child-one">
+                <div class="header-info">
+                    <h2>Status</h2>
+                </div>
+                <div class="header-content">
+                    <div class="status-div">
+                        <p>{{ pending_tickets }}</p>
+                        <div class="condition">
+                            <p>pending</p>
+                        </div>
+                    </div>
+                    <div class="status-div">
+                        <p>{{ resolved_tickets }}</p>
+                        <div class="condition">
+                            <p>resolved</p>
+                        </div>
+                    </div>
+                    <div class="status-div">
+                        <p>{{ total_tickets }}</p>
+                        <div class="condition">
+                            <p>submitted </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="total-issues">
+                    <p>47 issues total</p>
+                </div>
+            </div>
+            <div class="child-two">
+                <div class="header-info">
+                    <h2>Status</h2>
+                </div>
+                <div class="header-content">
+                    <div class="status-div">
+                        <p>80</p>
+                        <div class="condition">
+                            <p>pending</p>
+                        </div>
+                    </div>
+                    <div class="status-div">
+                        <p>5</p>
+                        <div class="condition">
+                            <p>resolved</p>
+                        </div>
+                    </div>
+                    <div class="status-div">
+                        <p>100</p>
+                        <div class="condition">
+                            <p>submitted </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="total-issues">
+                    <p>47 issues total</p>
+                </div>
+            </div>
+        </div>
+        <!-- second div where user can create a ticket -->
+        <div class="area-two">
+            {% for ticket in current_tickets %}
+            <div class="issue-item">
+                <div class="issue-item-status {{ ticket.issue_status.lower }}">
+                    <p>{{ ticket.issue_status }}</p>
+                </div>
+                <div class="issue-item-content">
+                    <p>{{ ticket.issue_content }}</p>
+                </div>
+                <div class="issue-item-date">
+                    <p>{{ ticket.date_issue_created | timesince }} ago</p>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- issue item 1 -->
+            <div class="issue-item">
+                <div class="issue-item-status cancelled">
+                    <div>
+                        
+                    <p>cancelled</p>
+                    </div>
+                </div>
+                <div class="issue-item-content">
+                    <p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Porro voluptates vel debitis maxime iste sequi eaque magnam corrupti similique numquam, sunt, quisquam commodi enim nisi saepe adipisci ad aperiam. Officia.</p>
+                </div>
+                <div class="issue-item-date">
+                    <p>now</p>
+                </div>
+            </div>
+            <!-- issue item 2 -->
+            <div class="issue-item">
+                <div class="issue-item-status resolved">
+                    <p>resolved</p>
+                </div>
+                <div class="issue-item-content">
+                    <p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Porro voluptates vel debitis maxime iste sequi eaque magnam corrupti similique numquam, sunt, quisquam commodi enim nisi saepe adipisci ad aperiam. Officia.</p>
+                </div>
+                <div class="issue-item-date">
+                    <p>now</p>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+{% endblock %}
