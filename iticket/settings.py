@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-r%r)4d5g=_(_ucko79(zs8%f7a_z7#vfvp6)vt%7hpsv*-ruql
 DEBUG = False
 
 ALLOWED_HOSTS = [
-".vercel.app",
-".now.sh"
+    ".vercel.app",
+    ".now.sh"
 ]
 
 
@@ -120,8 +120,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static", "userticketing")
+]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -184,11 +187,11 @@ JAZZMIN_SETTINGS = {
 
     # how to display related models
     "changeform_format": "carousel",
-    
+
     # override change forms on a per modeladmin basis
     "changeform_format_overrides": {"auth.user": "carousel", "auth.group": "collapsible"},
-    
+
     "related_modal_active": False,
-    
+
     # "language_chooser": True,
 }
