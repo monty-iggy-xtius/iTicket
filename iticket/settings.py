@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-r%r)4d5g=_(_ucko79(zs8%f7a_z7#vfvp6)vt%7hpsv*-ruql
 DEBUG = True
 
 ALLOWED_HOSTS = [
+"127.0.0.1",
     ".vercel.app",
     ".now.sh"
 ]
@@ -120,8 +121,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/userticketing'
-STATICFILES_DIRS = [
+STATIC_URL = '/static/'
+STATIC_DIRS = [
     os.path.join(BASE_DIR, "static"),
     # os.path.join(BASE_DIR, "static", "userticketing")
 ]
